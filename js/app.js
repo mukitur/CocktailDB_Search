@@ -2,9 +2,9 @@ function loadCocktailsName() {
     const getInput = document.getElementById('get-cocktail-input');
     const getInputValues = getInput.value;
     //clear test
-    getInput.innerText = '';
-    if (getInput.length == 0) {
-        getInput.innerText = '';
+    getInput.value = '';
+    if (getInputValues.length === 0) {
+        alert('Please Enter a valid CockTail Name');
     }
     else {
         const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${getInputValues}`;
@@ -12,8 +12,6 @@ function loadCocktailsName() {
             .then(res => res.json())
             .then(data => displayCockTails(data.drinks))
     }
-
-
 }
 
 const displayCockTails = drinks => {
@@ -59,9 +57,7 @@ const displayCocktailDetails = drinks => {
         <div class="col-6">
             <div class="p-3 border bg-white">
                 <h5>Ingredients</h5>
-                <div><img width = "200px" src="${drinks.strDrinkThumb}"></br> ${drinks.strCategory} </div
-                <div></div
-                <div></div
+                <div><img width = "400px" src="${drinks.strDrinkThumb}"></br> ${drinks.strCategory} </div
             </div>
         </div>
         <div class="col-12 border">
